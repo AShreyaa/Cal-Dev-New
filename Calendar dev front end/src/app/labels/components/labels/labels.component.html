@@ -1,0 +1,31 @@
+
+<mat-card style="box-shadow: 0px 0px 0px;border: #f44336 0.5px solid; border-radius: 10px;" >
+  <mat-card-header style="justify-content: center;">
+    <mat-card-subtitle >Labels</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <input matInput placeholder="Enter Label Name" [formControl]="newLabel" style="padding-bottom: 0px;">
+    </mat-form-field>
+    <ul style="list-style-type:none;padding-top: 3%;">
+      <li *ngFor="let option of filteredOptions | async;let i=index">
+        <mat-checkbox [(ngModel)]="checkLabels[i]"
+                      (ngModelChange)="editLabels(option,checkLabels[i],false)">
+          {{option}}
+        </mat-checkbox>
+      </li>
+    </ul>
+    <!-- <mat-chip-list style="padding-top:5px;">
+      <mat-chip *ngFor="let option of filteredOptions | async"  (click)="editLabels(option,true,false)" >
+  {{option}}
+</mat-chip>
+      </mat-chip-list> -->
+    <div *ngIf="createLabel" style="display: flex;justify-content: center;">
+    <button mat-raised-button (click)="createNewLabel()" style="margin-left: 0px;" color="warn">Create Label</button>
+    </div>
+    <!-- <ng-template #falseTEmp>
+      false 
+    </ng-template> -->
+  </mat-card-content>
+</mat-card>
+

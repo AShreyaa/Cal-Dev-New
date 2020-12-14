@@ -1,0 +1,55 @@
+.listTitle{
+    padding-top: 5%;
+    padding-left: 6%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 17px;
+    font-weight: 450;
+}
+
+.listDes{
+    padding-top: 5%;
+    padding-left: 9%;
+    padding-right: 9%;
+    padding-bottom: 5%;
+/* white-space: pre-line; */
+        --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 15px;
+        font-weight: 350;
+        overflow: hidden;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+}
+
+.listList{
+    /* padding-top: 5%; */
+    padding-left: 9%;
+    padding-right: 9%;
+        /* --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-family: Roboto, "Helvetica Neue", sans-serif; */
+        font-size: 15px;
+        font-weight: 400;
+}
+
+/* ::ng-deep .mat-chip-list-wrapper{
+   width: 80%;    
+   margin: 0;
+   
+} */
+.chip{
+    margin-left: 2% !important;
+    margin-top: -20px !important;
+    position: absolute;
+    bottom: 40px;
+    max-inline-size:260px;
+    margin-right: 5% !important;
+    
+}
+.chipdisp{
+    font-size: 12px;
+max-width: 100px;
+ white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

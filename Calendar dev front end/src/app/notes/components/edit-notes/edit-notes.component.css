@@ -1,0 +1,35 @@
+.notesTitle{
+    padding-top: 10px;
+    padding-left: 10px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 17px;
+    font-weight: 450;
+}
+
+.notesDes{
+    padding-top: 5px;
+    padding-left:20px;
+    /* padding-right: 9%; */
+/* white-space: pre-line; */
+        --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 15px;
+        font-weight: 350;
+}
+
+.chip{
+    /* padding-top: 15%; */
+    position: absolute;
+    bottom: 10px;
+}
+.pos{
+    position: relative;
+}
+
+::ng-deep .mat-form-field-wrapper{
+    padding: 0 !important;
+}
+
+::ng-deep .mat-mini-fab{
+    margin: 3px !important;
+}

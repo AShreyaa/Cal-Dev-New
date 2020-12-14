@@ -1,85 +1,71 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component'
-import { CoreComponent } from './core/components/core/core.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatGridListModule} from '@angular/material/grid-list'; 
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button'; 
-import {MatCardModule} from '@angular/material/card'; 
+import { CoreComponent } from './core/components/core/core.component';
 import { NavbarComponent } from './navbar/components/navbar/navbar.component';
-import { AccountCardComponent } from './navbar/components/account-card/account-card.component';
-import { SettingsComponent } from './navbar/components/settings/settings.component';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 import { MenuComponent } from './navbar/components/menu/menu.component';
-import {MatTabsModule} from '@angular/material/tabs';
-import { NotesComponent } from './notes/components/notes/notes.component';
-import { ToDoComponent } from './to-do/components/to-do/to-do.component';
-import { CalendarComponent } from './calendar/components/calendar/calendar.component';
-import { ReminderComponent } from './reminder/components/reminder/reminder.component';
-import { TaskComponent } from './task/components/task/task.component';
-import { EventComponent } from './event/components/event/event.component';
-import { CreateNotesComponent } from './notes/components/create-notes/create-notes.component';
+import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateNotesComponent } from './notes/components/create-notes/create-notes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatExpansionModule} from '@angular/material/expansion'; 
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { LabelComponent } from './label/components/label/label.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatInputModule} from '@angular/material/input';
+import { LabelsComponent } from './labels/components/labels/labels.component';
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatSelectModule} from '@angular/material/select'; 
-import {MatChipsModule} from '@angular/material/chips';
-import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
+import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
+import {MatChipsModule} from '@angular/material/chips'; 
+import { NotesComponent } from './notes/components/notes/notes.component';
+import { EditNotesComponent } from './notes/components/edit-notes/edit-notes.component';
+import { DispAllNotesComponent } from './notes/components/disp-all-notes/disp-all-notes.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { CreateListComponent } from './lists/components/create-list/create-list.component';
+import { ListsComponent } from './lists/components/lists/lists.component';
+import { EditListsComponent } from './lists/components/edit-lists/edit-lists.component';
+import { DispAllListsComponent } from './lists/components/disp-all-lists/disp-all-lists.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CoreComponent,
     NavbarComponent,
-    AccountCardComponent,
-    SettingsComponent,
     MenuComponent,
-    CalendarComponent,
-    NotesComponent,
-    ToDoComponent,
-    ReminderComponent,
-    TaskComponent,
-    EventComponent,
     CreateNotesComponent,
-    LabelComponent,
-    MenuComponent,
+    LabelsComponent,
     NotesComponent,
-   
-   
-
+    EditNotesComponent,
+    DispAllNotesComponent,
+    CreateListComponent,
+    ListsComponent,
+    EditListsComponent,
+    DispAllListsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     MatGridListModule,
-    MatSidenavModule,
     MatIconModule,
-    MatInputModule,
     MatButtonModule,
-    MatCardModule,
-    MatDividerModule,
     MatDialogModule,
-    MatTabsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatExpansionModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
     FormsModule,
-    MatAutocompleteModule,
-    MatSelectModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatCardModule,
     MatChipsModule,
-    MatMenuModule,
+    MatAutocompleteModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

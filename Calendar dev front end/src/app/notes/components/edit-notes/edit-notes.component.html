@@ -1,0 +1,71 @@
+<div style="display: flex;justify-content: center;" class="pos">
+
+
+<div  style="border:#f44336 1px solid;border-radius: 5px;margin: 5px;width: 100%;min-height: 250px;">
+    <div class="notesTitle">
+        {{data.notes.title.title}}
+    </div>
+    <div *ngIf="!edit else editNotes">
+
+        <button style="right: 10px;top: 10px;position: absolute;" mat-button color="primary" (click)="edit=true">Edit</button>
+ 
+    <div class="notesDes">
+{{data.notes.description}}
+
+
+
+    </div>
+    <div  style="padding-top: 5px;white-space: pre-line; padding-left:20px;">
+        {{data.notes.notes}}
+</div>
+    <div style="padding-top:10%;">
+    <div style="padding: 2%;" class="chip">
+    <mat-chip-list style="padding-top:5px; padding-left: 5px;">
+        <mat-chip *ngFor="let option of data.notes.tags" [selectable]="selectable">
+    {{option}}
+    
+  </mat-chip>
+        </mat-chip-list>
+        </div>
+</div>
+    </div>
+</div>
+
+<ng-template #editNotes>
+    <!-- <button style="right: 10px;top: 10px;position: absolute;" mat-button color="primary" (click)="save()">save</button> -->
+    <div style="justify-content: center;display: flex;">
+        <mat-form-field appearance="outline" style="width: 95%;padding-top: 1%;" >
+            <mat-label>Description</mat-label>
+            <textarea rows="1" matInput placeholder="Description not more than 20 words" [(ngModel)]="data.notes.description"></textarea>
+          </mat-form-field>
+    </div>
+    <div style="justify-content: center;display: flex;">
+   
+      <mat-form-field appearance="outline" style="width: 95%;padding-top: 1%;">
+        <mat-label>Notes</mat-label>
+        <textarea rows="10" matInput  placeholder="Notes" [(ngModel)]="data.notes.notes"></textarea>
+      </mat-form-field>
+    </div>
+    <div style="display: flex;justify-content: flex-end;width: 100%;padding: 5px;">
+        <button mat-mini-fab color="warn" (click)="show(1)">
+<mat-icon>palette</mat-icon>
+</button>
+<button mat-mini-fab color="warn" (click)="show(2)" >
+<mat-icon>attachment</mat-icon>
+</button>
+<button mat-mini-fab color="warn" (click)="openDialogLabel()">
+<mat-icon>label</mat-icon>
+</button>
+<button type="submit" mat-mini-fab color="warn" (click)="save()">
+<mat-icon>done</mat-icon>
+</button>
+<button mat-mini-fab color="warn" (click)="newNotes.value.archive=true">
+<mat-icon>archive</mat-icon>
+</button>
+<button mat-mini-fab color="warn" (click)="closeNewNotes()">
+<mat-icon>delete_outline</mat-icon>
+</button>
+</div>
+</ng-template>
+</div>
+

@@ -1,27 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotesComponent } from './components/notes/notes.component';
-import {UserCalendar} from '../calendar/models/user-calendar'
-import { HttpClient } from '@angular/common/http';
 import { CreateNotesComponent } from './components/create-notes/create-notes.component';
-import { LabelComponent } from '../label/components/label/label.component';
+import { EditNotesComponent } from './components/edit-notes/edit-notes.component';
+import { DispAllNotesComponent } from './components/disp-all-notes/disp-all-notes.component';
+
 
 
 @NgModule({
-  declarations: [NotesComponent, CreateNotesComponent],
+  declarations: [NotesComponent, CreateNotesComponent, EditNotesComponent, DispAllNotesComponent],
   imports: [
-    CommonModule,
-    LabelComponent,
+    CommonModule
   ]
 })
-
-export class NotesModule {
-
-  
-
-
-
-
-
-
- }
+export class NotesModule { }

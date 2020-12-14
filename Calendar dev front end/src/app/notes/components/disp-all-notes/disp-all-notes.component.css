@@ -1,0 +1,41 @@
+.notesTitle{
+    padding-top: 5%;
+    padding-left: 6%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 17px;
+    font-weight: 450;
+}
+
+.notesDes{
+    padding-top: 5%;
+    padding-left: 9%;
+    padding-right: 9%;
+/* white-space: pre-line; */
+        --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 15px;
+        font-weight: 350;
+        overflow: hidden;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+}
+
+/* ::ng-deep .mat-chip-list-wrapper{
+   width: 80%;    
+   margin: 0;
+   
+} */
+.chip{
+    margin-left: 5% !important;
+    margin-top: -20px !important;
+    position: absolute;
+    bottom: 35px;
+    
+}
+.chipdisp{
+max-width: 150px;
+ white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

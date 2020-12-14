@@ -1,51 +1,15 @@
-<div style="background-color: #3f51b5;">
-<mat-grid-list cols=20 rowHeight=50px>
-<mat-grid-tile >
-   <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
-    </button>
-</mat-grid-tile>
 
-<mat-grid-tile [colspan]=3 ><span style="color: white;">Saturday 20 September</span></mat-grid-tile>
-<mat-grid-tile [colspan]=12 >
-</mat-grid-tile>
-<mat-grid-tile >
-    <button mat-icon-button>
-    <mat-icon>search</mat-icon>
-    </button>
-</mat-grid-tile>
-<mat-grid-tile >
-    <button mat-icon-button>
-    <mat-icon>view_module</mat-icon>
-    </button>
-    <!-- <mat-icon>view_stream</mat-icon> -->
-</mat-grid-tile>
-<mat-grid-tile >
-    <button mat-icon-button (click)= "openDialogSettings()" >
-    <mat-icon>settings</mat-icon>
-    </button>
-   
+    <mat-grid-list cols="20" rowHeight="50px" style="background-color:  #3f51b5;">
+        <mat-grid-tile [colspan]=1><mat-icon>menu</mat-icon></mat-grid-tile>
+        <mat-grid-tile [colspan]=3><span style="color: white;">{{valueDate | date:'EEEE, MMMM d, y'}}</span></mat-grid-tile>
+        <mat-grid-tile [colspan]=12></mat-grid-tile>
+        <mat-grid-tile [colspan]=1>
+            <button mat-icon-button><mat-icon>search</mat-icon></button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]=1><button mat-icon-button><mat-icon>grid_view</mat-icon></button></mat-grid-tile>
+        <mat-grid-tile [colspan]=1><button mat-icon-button (click)="openSettings()"><mat-icon>settings</mat-icon></button></mat-grid-tile>
+        <mat-grid-tile [colspan]=1><button mat-icon-button (click)="openAccounts()"><mat-icon>account_circle</mat-icon></button></mat-grid-tile>
 
-</mat-grid-tile>
-<mat-grid-tile >
-    <div>
-        <button mat-icon-button (click)="openDialogAccounts()">
-        <mat-icon>account_circle</mat-icon>
-        </button>
-    </div>
-</mat-grid-tile>
-</mat-grid-list>
-</div>
+      </mat-grid-list>
 
-<div *ngIf="account" >
-    <app-account-card></app-account-card>
-</div>
-
-<!-- <div *ngIf="settings">
-    <app-settings></app-settings>
-</div> -->
-<!-- <mat-form-field  appearance="outline" style="width: 90%;">
-    <input matInput type="search">  
-  </mat-form-field>
-   -->
   

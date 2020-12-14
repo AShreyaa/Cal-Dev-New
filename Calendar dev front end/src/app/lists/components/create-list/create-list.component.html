@@ -1,0 +1,81 @@
+<div style="box-shadow: 0px 0px 0px;border: #f44336 0.5px solid;border-radius: 5px;padding: 1%;margin: 2%;">
+
+<form [formGroup]="newList">
+<mat-accordion>
+    <mat-expansion-panel hideToggle  [expanded]="openExpPanel" (opened)="expOpened()">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          List down here...
+        </mat-panel-title>
+      </mat-expansion-panel-header> 
+      <div formGroupName="title">
+        <mat-form-field appearance="outline" style="width: 100%;padding-top: 1%;">
+            <input matInput formControlName="title" placeholder="Title">
+          </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline" style="width: 100%;padding-top: 1%;">
+            <mat-label>Description</mat-label>
+            <textarea rows="1" matInput formControlName="description" placeholder="Description not more than 20 words"></textarea>
+          </mat-form-field>
+          <div formArrayName="taskOrList">
+            <div  style="margin-left: 11%;">
+            <mat-grid-list cols="2" rowHeight="4:1">
+                <mat-grid-tile *ngFor="let list of taskOrList.controls; let i=index"  [rowspan]=1 >
+            <div style="width: 100%;">
+                  <!-- The repeated alias template -->
+                  <mat-checkbox> </mat-checkbox>
+                    <mat-form-field style="margin-left: 15px;">
+                    <input matInput  type="text" [formControlName]="i">
+                    </mat-form-field>
+                    <span *ngIf="i+1==newList.value.taskOrList.length" style="margin-left: 10px;margin-top: 10px;">
+                    <button mat-mini-fab color="warn" (click)="addTaskOrList()" ><mat-icon>add</mat-icon></button>
+                </span>
+</div>
+                    <!-- <mat-form-field appearance="outline" style="width: 40%">
+                        <input matInput type="text" [formControlName]="i">
+                        </mat-form-field>
+                        <button mat-mini-fab color="warn" (click)="addTaskOrList()" style="margin-left:10px;"><mat-icon>add</mat-icon></button> -->
+                   </mat-grid-tile>
+                   </mat-grid-list>
+                </div>
+             
+          
+        </div>
+          <mat-chip-list style="padding-top:5px;">
+          <mat-chip *ngFor="let option of selectedLabels" [selectable]="selectable"
+             [removable]=true (removed)="removeLabel(option)" >
+      {{option}}
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+          </mat-chip-list>
+      <!-- </div> -->
+          <mat-action-row>
+            <!-- <div *ngIf="labelDisp" style="display: flex;justify-content: right;width: 70%;padding: 2%;">
+            <app-labels (labelsEdited)="labelsEdited($event)" ></app-labels>
+            </div> -->
+            <div style="display: flex;justify-content: flex-end;width: 70%;">
+                          <button mat-mini-fab color="warn" >
+                <mat-icon>palette</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" >
+                <mat-icon>attachment</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" (click)="openDialogLabel()">
+                <mat-icon>label</mat-icon>
+              </button>
+              <button type="submit" mat-mini-fab color="warn" (click)="onSubmit()" >
+                <mat-icon>done</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" (click)="newList.value.archive=true">
+                <mat-icon>archive</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" (click)="closeNewList()">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+              </div>
+          </mat-action-row>
+    </mat-expansion-panel>
+    </mat-accordion>
+</form>
+</div>
+     

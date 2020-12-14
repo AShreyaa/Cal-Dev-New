@@ -5,6 +5,7 @@ export interface UserCalendar {
         account:String;
     };
     description:String;
+    notes:String;
     date:String;
     editedTimestamp:[];
     targetDate:String;
@@ -13,6 +14,4 @@ export interface UserCalendar {
     attachmentUrl:[];
     archive:boolean;
     taskOrList:[];
-
-    
 }

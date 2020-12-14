@@ -1,44 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AccountsComponent } from '../accounts/accounts.component';
 import { SettingsComponent } from '../settings/settings.component';
-import { AccountCardComponent } from '../account-card/account-card.component';
-import {ViewEncapsulation} from '@angular/core';
-
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  encapsulation: ViewEncapsulation.None 
+  encapsulation: ViewEncapsulation.None
 })
 export class NavbarComponent implements OnInit {
- 
-  search:String
-  account:boolean
-  settings:boolean
-   constructor(public dialogAcc: MatDialog,public dialogSet: MatDialog) {}
-   openDialogSettings() {
-     this.dialogAcc.closeAll()
-    this.dialogAcc.open(SettingsComponent,{
-      position: {
-        top: '15px',
-        right: '15px'
-      },
-      backdropClass: 'backdropBackground'
-    });
+
+  constructor(public dailogSettings:MatDialog,public dailogAccount:MatDialog) { }
+
+  valueDate=new Date();
+
+  openSettings(){
+  this.dailogSettings.closeAll()
+  this.dailogSettings.open(SettingsComponent,{
+    position:{
+      top:'15px',
+      right:'15px'
+
+    },
+    backdropClass:'backdropBackground'
+  })
   }
 
-  openDialogAccounts() {
-    this.dialogSet.closeAll()
-  this.dialogSet.open(AccountCardComponent,{
-      position: {
-        top: '15px',
-        right: '15px'
+  openAccounts(){
+    this.dailogAccount.closeAll()
+    this.dailogAccount.open(AccountsComponent,{
+      position:{
+        top:'15px',
+        right:'15px'
+  
       },
-      backdropClass: 'backdropBackground'
-    });
-  }
-
+      backdropClass:'backdropBackground'
+    })
+    }
 
   ngOnInit(): void {
   }

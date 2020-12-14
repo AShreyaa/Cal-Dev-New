@@ -1,65 +1,62 @@
-
-  <form [formGroup]="newNotes" style="width: 100%;">
-  <mat-accordion >
-  <mat-expansion-panel hideToggle>
-   
-        <mat-expansion-panel-header (click)=extensions(0)>
-          <mat-panel-title>
-            Take Notes...
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div (click)=extensions(0)>
-        <div formGroupName="title">
-          <mat-form-field appearance="outline" style="width: 100%;">
-
-<input matInput type="text" formControlName="title" placeholder="title">
-</mat-form-field>
-      </div >
-      <mat-form-field appearance="outline" style="width: 100%;">
-        <textarea matInput formControlName="description" placeholder="description"></textarea>
-      </mat-form-field>
-      
+<div style="box-shadow: 0px 0px 0px;border: #f44336 0.5px solid;border-radius: 5px;padding: 1%;margin: 2%;">
+<form [formGroup]=newNotes>
+<mat-accordion>
+    <mat-expansion-panel hideToggle [expanded]="openExpPanel" (opened)="expOpened()">
+      <mat-expansion-panel-header>
+        <mat-panel-title >
+         Take notes...
+        </mat-panel-title>
+        <mat-panel-description  >
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div (click)="show(4)">
+      <div formGroupName="title">
+        <mat-form-field appearance="outline" style="width: 100%;padding-top: 1%;">
+            <input matInput formControlName="title" placeholder="Title">
+          </mat-form-field>
         </div>
-        <div style="border: solid #e7e7e7 1px;padding: 2%;border-radius: 5px;" *ngIf="allSelectedLabels.length" (click)="addLabel=!addLabel">
-          <label>Selected Labels</label>
-          <mat-chip-list>
-            <mat-chip *ngFor="let option of allSelectedLabels;let i=index" [selectable]="selectable" [removable]="true"  (removed)="removeLabel(option)">
-        {{option}}
-        <mat-icon matChipRemove>cancel</mat-icon>
-            </mat-chip>
+        <mat-form-field appearance="outline" style="width: 100%;padding-top: 1%;">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" placeholder="Description not more than 20 words"></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 100%;padding-top: 1%;">
+            <mat-label>Notes</mat-label>
+            <textarea rows="5" matInput formControlName="notes" placeholder="Notes"></textarea>
+          </mat-form-field>
+          <mat-chip-list style="padding-top:5px;">
+          <mat-chip *ngFor="let option of selectedLabels" [selectable]="selectable"
+             [removable]=true (removed)="removeLabel(option)" >
+      {{option}}
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
           </mat-chip-list>
-        </div>
-        
-      <mat-action-row style="padding-left: 8px;">
-        <div *ngIf="addLabel" style="width: 50%;margin-right: 40px;">
-          <app-label (allSelectedLabels)="fun($event)" [deletedLabel]="deletedLabel"></app-label>
-        </div>
-        <div>
-        <button mat-mini-fab color="warn">
-          <mat-icon>palette</mat-icon>
-        </button>
-        <button mat-mini-fab color="warn" >
-          <mat-icon>attachment</mat-icon>
-        </button>
-        <button mat-mini-fab color="warn" (click)="addLabel=!addLabel">
-          <mat-icon>label</mat-icon>
-        </button>
-        <button mat-mini-fab color="warn">
-          <mat-icon>done</mat-icon>
-        </button>
-        <button mat-mini-fab color="warn">
-          <mat-icon>archive</mat-icon>
-        </button>
-        <button mat-mini-fab color="warn">
-          <mat-icon>delete_outline</mat-icon>
-        </button>
-        </div>
-        
-      </mat-action-row>
-      
-      </mat-expansion-panel>
-    </mat-accordion> 
-  </form>
-  
-
- 
+      </div>
+          <mat-action-row>
+            <div *ngIf="labelDisp" style="display: flex;justify-content: right;width: 70%;padding: 2%;">
+            <!-- <app-labels (labelsEdited)="labelsEdited($event)" ></app-labels> -->
+            </div>
+            <div style="display: flex;justify-content: flex-end;width: 70%;">
+                          <button mat-mini-fab color="warn" (click)="show(1)">
+                <mat-icon>palette</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" (click)="show(2)" >
+                <mat-icon>attachment</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" (click)="openDialogLabel()">
+                <mat-icon>label</mat-icon>
+              </button>
+              <button type="submit" mat-mini-fab color="warn" (click)="onSubmit()" >
+                <mat-icon>done</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" (click)="newNotes.value.archive=true">
+                <mat-icon>archive</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" (click)="closeNewNotes()">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+              </div>
+          </mat-action-row>
+    </mat-expansion-panel>
+    </mat-accordion>
+</form>
+</div>
