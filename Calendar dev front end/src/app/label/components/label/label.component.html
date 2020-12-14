@@ -1,0 +1,40 @@
+<mat-card style="width: 100%;border: #e7e7ee solid 1px; box-shadow:0px 0px 0px 0px !important;margin-left: 5px;">
+  <mat-card-content style="margin-bottom: 5px !important;">
+    <div>
+      <input matInput type="text" [formControl]="newLabel" placeholder="Enter Label Name"  >
+    </div>
+      <section>
+              <ul style="list-style-type:none">
+        <li *ngFor="let option of filteredOptions | async;let i=index" >
+          <mat-checkbox [(ngModel)]="check[i]"
+                        (ngModelChange)="addLabel(option,check[i])">
+            {{option}}
+          </mat-checkbox>
+        </li>
+      </ul>
+      </section>
+
+  </mat-card-content>
+  <div *ngIf="create">
+<mat-card-actions style="padding: 5px !important;display: flex;justify-content: center;margin: 0px !important;">
+    <div  style="display: flex;justify-content: center;"> 
+      <button mat-flat-button style="margin-left: 0px;" (click)="createLabel()">
+    <h5 style="margin: auto;">Create New Label</h5>
+    </button>
+    </div>
+  </mat-card-actions>
+  </div>
+  <div *ngIf="selectedLabels.length">
+  <mat-divider>
+  </mat-divider>
+  <!-- <div style="padding: 3px;">
+    Selected Labels
+  </div> -->
+  <!-- <mat-chip-list>
+    <mat-chip *ngFor="let option of selectedLabels;let i=index" [selectable]="selectable" [removable]="true"  (removed)="addLabel(option,false)">
+{{option}}
+<mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list> -->
+</div>
+  </mat-card>
